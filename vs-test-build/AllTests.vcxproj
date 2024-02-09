@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\tests\AllTests.cpp" />
+    <ClCompile Include="..\tests\led_driver_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ProductionCodeLib.vcxproj">
