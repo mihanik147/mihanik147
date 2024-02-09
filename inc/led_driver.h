@@ -33,6 +33,13 @@ void led_driver_destroy(void);
 */
 void led_driver_turn_on(uint8_t ledNumber);
 
+/** @brief Turn off the led with ledNumber.
+*
+* @param[in] ledNumber The number of led turned off.
+* @return None
+*/
+void led_driver_turn_off(uint8_t ledNumber);
+
 #endif // LED_DRIVER_H
 
 /*** end of file ***/

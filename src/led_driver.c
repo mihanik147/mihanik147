@@ -28,4 +28,9 @@ void led_driver_turn_on(uint8_t ledNumber)
 	*leds_address = 1;
 }
 
+void led_driver_turn_off(uint8_t ledNumber)
+{
+	*leds_address = 0;
+}
+
 /*** end of file ***/
