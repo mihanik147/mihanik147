@@ -24,3 +24,10 @@ TEST(LedDriver, LedsOffAfterCreate)
 	BITS_EQUAL(0, virtualLeds, 0xffff);
 }
 
+TEST(LedDriver, TurnOnLedOne)
+{
+	uint16_t virtualLeds;
+	led_driver_create(&virtualLeds);
+	led_driver_turn_on(1);
+	BITS_EQUAL(1, virtualLeds, 0xffff);
+}

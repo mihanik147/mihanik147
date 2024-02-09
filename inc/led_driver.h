@@ -17,7 +17,7 @@
 * @param[in,out] address The memory address of leds.s
 * @return None
 */
-void led_driver_create(uint16_t * address);
+void led_driver_create(uint16_t * const address);
 
 /** @brief Destroy object of led driver.
 *
@@ -25,6 +25,13 @@ void led_driver_create(uint16_t * address);
 * @return None
 */
 void led_driver_destroy(void);
+
+/** @brief Turn on the led with ledNumber.
+*
+* @param[in] ledNumber The number of led turned on.
+* @return None
+*/
+void led_driver_turn_on(uint8_t ledNumber);
 
 #endif // LED_DRIVER_H
 
