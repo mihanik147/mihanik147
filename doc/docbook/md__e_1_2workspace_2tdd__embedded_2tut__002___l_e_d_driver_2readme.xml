@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme" xml:lang="en-US">
+<title>Требования к LED-драйверу:</title>
+<indexterm><primary>Требования к  LED-драйверу:</primary></indexterm>
+
+<para><anchor xml:id="_md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_1autotoc_md0"/><orderedlist>
+<listitem>
+<para>LED-драйвер управляет 16-ю светодиодами с двумя состояниями.</para>
+</listitem><listitem>
+<para>Драйвер может включать и выключать отдельно любой светодиод без затрагивания других.</para>
+</listitem><listitem>
+<para>Драйвер может включить и выключить все светодиоды с помощью одного вызова из интерфеса.</para>
+</listitem><listitem>
+<para>Пользователь драйвера может запросить состояние любого светодиода.</para>
+</listitem><listitem>
+<para>По умолчанию при включении питания светодиоды фиксируются. Светодиоды должны отключаться программно.</para>
+</listitem><listitem>
+<para>Светодиоды отображаются в памяти в 16-битное слово (по адресу, который необходимо определить).</para>
+</listitem><listitem>
+<para>1 в позиции бита зажигает соответствующий светодиод; 0 выключает его.</para>
+</listitem><listitem>
+<para>Младший бит соответствует светодиоду 1; старший бит соответствует светодиоду 16.</para>
+</listitem></orderedlist>
+</para>
+
+<para><blockquote>
+<para>&#8205;1. The LED driver controls 16 two-state LEDs.<orderedlist>
+<listitem>
+<para>The driver can turn on or off any individual LED without affecting the others.</para>
+</listitem><listitem>
+<para>The driver can turn all LEDs on or off with a single interface call.</para>
+</listitem><listitem>
+<para>The user of the driver can query the state of any LED.</para>
+</listitem><listitem>
+<para>At power-on, the hardware default is for LEDs to be latched on. They must be turned off by the software.</para>
+</listitem><listitem>
+<para>LEDs are memory-mapped to a 16-bit word (at an address to be </para>
+</listitem></orderedlist>
+</para>
+</blockquote>determined). <blockquote>
+<para>&#8205;7. A 1 in a bit position lights the corresponding LED; 0 turns it off.<orderedlist>
+<listitem>
+<para>The least significant bit corresponds to LED 1; the most significant bit corresponds to LED 16. </para>
+</listitem></orderedlist>
+</para>
+</blockquote></para>
+<section xml:id="_md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_1autotoc_md1">
+<title><title>Какие тесты нам нужны</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Все светодиоды погаснут после инициализации драйвера.</para>
+</listitem><listitem>
+<para>Можно включить один светодиод.</para>
+</listitem><listitem>
+<para>Один светодиод можно отключить.</para>
+</listitem><listitem>
+<para>Несколько светодиодов можно включать/выключать.</para>
+</listitem><listitem>
+<para>Включите все светодиоды</para>
+</listitem><listitem>
+<para>Выключите все светодиоды</para>
+</listitem><listitem>
+<para>Запрос состояния светодиода</para>
+</listitem><listitem>
+<para>Проверьте граничные значения</para>
+</listitem><listitem>
+<para>Проверьте значения за пределами границ </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

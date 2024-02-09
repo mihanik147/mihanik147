@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_version_8h_source" xml:lang="en-US">
+<title>version.h</title>
+<indexterm><primary>E:/workspace/tdd_embedded/tut_002_LEDDriver/inc/version.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/******************************************************************************</emphasis>
+2 <emphasis role="comment">Version&#32;tut_002_LedDriver</emphasis>
+3 <emphasis role="comment"></emphasis>
+4 <emphasis role="comment">2024/02/07&#32;-&#32;Ver&#32;1.0</emphasis>
+5 <emphasis role="comment">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Initial&#32;release</emphasis>
+6 <emphasis role="comment">******************************************************************************/</emphasis>
+7 <emphasis role="preprocessor">#undef&#32;VERSION</emphasis>
+8 <emphasis role="preprocessor">#define&#32;VERSION&#32;&quot;Version&#32;1.0&quot;</emphasis>
+</programlisting></section>

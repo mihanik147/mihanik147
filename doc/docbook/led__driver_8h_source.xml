@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_led__driver_8h_source" xml:lang="en-US">
+<title>led_driver.h</title>
+<indexterm><primary>E:/workspace/tdd_embedded/tut_002_LEDDriver/inc/led_driver.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+10 <emphasis role="preprocessor">#ifndef&#32;LED_DRIVER_H</emphasis>
+11 <emphasis role="preprocessor">#define&#32;LED_DRIVER_H</emphasis>
+12 
+13 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+14 
+20 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_led__driver_8h_1a182b72cd9909c275f7c1b55c9167d7b7">led_driver_create</link>(uint16_t&#32;*&#32;address);
+21 
+22 
+23 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;LED_DRIVER_H</emphasis>
+24 
+25 <emphasis role="comment">/***&#32;end&#32;of&#32;file&#32;***/</emphasis>
+</programlisting></section>

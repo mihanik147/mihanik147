@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_led__driver_8h" xml:lang="en-US">
+<title>E:/workspace/tdd_embedded/tut_002_LEDDriver/inc/led_driver.h File Reference</title>
+<indexterm><primary>E:/workspace/tdd_embedded/tut_002_LEDDriver/inc/led_driver.h</primary></indexterm>
+<para>
+
+<para>Led driver developed under TDD. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_led__driver_8h_1a182b72cd9909c275f7c1b55c9167d7b7">led_driver_create</link> (uint16_t *address)</para>
+
+<para>Create object of led driver and off all leds. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Led driver developed under TDD. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Mikhail Chelushkin. </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>1.0 </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>2024/02/09 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_led__driver_8h_1a182b72cd9909c275f7c1b55c9167d7b7"/><section>
+    <title>led_driver_create()</title>
+<indexterm><primary>led_driver_create</primary><secondary>led_driver.h</secondary></indexterm>
+<indexterm><primary>led_driver.h</primary><secondary>led_driver_create</secondary></indexterm>
+<para><computeroutput>void led_driver_create (uint16_t * address)</computeroutput></para><para>
+
+<para>Create object of led driver and off all leds. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in,out</entry><entry>address</entry><entry>
+<para>The memory address of leds.s </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>None </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

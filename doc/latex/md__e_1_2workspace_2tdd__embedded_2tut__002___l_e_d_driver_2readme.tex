@@ -1,0 +1,43 @@
+\chapter{Требования к LED-\/драйверу\+:}
+\hypertarget{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme}{}\label{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme}\index{Требования к  LED-\/драйверу:@{Требования к  LED-\/драйверу:}}
+\label{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_autotoc_md0}%
+\Hypertarget{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_autotoc_md0}%
+
+\begin{DoxyEnumerate}
+\item LED-\/драйвер управляет 16-\/ю светодиодами с двумя состояниями.
+\item Драйвер может включать и выключать отдельно любой светодиод без затрагивания других.
+\item Драйвер может включить и выключить все светодиоды с помощью одного вызова из интерфеса.
+\item Пользователь драйвера может запросить состояние любого светодиода.
+\item По умолчанию при включении питания светодиоды фиксируются. Светодиоды должны отключаться программно.
+\item Светодиоды отображаются в памяти в 16-\/битное слово (по адресу, который необходимо определить).
+\item 1 в позиции бита зажигает соответствующий светодиод; 0 выключает его.
+\item Младший бит соответствует светодиоду 1; старший бит соответствует светодиоду 16.
+\end{DoxyEnumerate}
+
+\begin{quote}
+1. The LED driver controls 16 two-\/state LEDs.
+\begin{DoxyEnumerate}
+\item The driver can turn on or off any individual LED without affecting the others.
+\item The driver can turn all LEDs on or off with a single interface call.
+\item The user of the driver can query the state of any LED.
+\item At power-\/on, the hardware default is for LEDs to be latched on. They must be turned off by the software.
+\item LEDs are memory-\/mapped to a 16-\/bit word (at an address to be 
+\end{DoxyEnumerate}\end{quote}
+determined). \begin{quote}
+7. A 1 in a bit position lights the corresponding LED; 0 turns it off.
+\begin{DoxyEnumerate}
+\item The least significant bit corresponds to LED 1; the most significant bit corresponds to LED 16. 
+\end{DoxyEnumerate}\end{quote}
+\hypertarget{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_autotoc_md1}{}\doxysubsection{\texorpdfstring{Какие тесты нам нужны}{Какие тесты нам нужны}}\label{md__e_1_2workspace_2tdd__embedded_2tut__002___l_e_d_driver_2readme_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Все светодиоды погаснут после инициализации драйвера.
+\item Можно включить один светодиод.
+\item Один светодиод можно отключить.
+\item Несколько светодиодов можно включать/выключать.
+\item Включите все светодиоды
+\item Выключите все светодиоды
+\item Запрос состояния светодиода
+\item Проверьте граничные значения
+\item Проверьте значения за пределами границ 
+\end{DoxyItemize}

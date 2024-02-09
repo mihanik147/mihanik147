@@ -1,8 +1,9 @@
 #include "CppUTest/TestHarness.h"
+#include <stdint.h>
 
 extern "C"
 {
-
+#	include "led_driver.h"
 }
 
 TEST_GROUP(LedDriver)
@@ -18,6 +19,8 @@ TEST_GROUP(LedDriver)
 
 TEST(LedDriver, LedsOffAfterCreate)
 {
-	FAIL("Start here");
+	uint16_t virtualLeds = 0xffff;
+	led_driver_create(&virtualLeds);
+	BITS_EQUAL(0, virtualLeds, 0xffff);
 }
 
