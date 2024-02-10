@@ -9,6 +9,12 @@
 
 #include "led_driver.h"
 
+enum
+{
+	ALL_LEDS_ON = ~0,
+	ALL_LEDS_OFF = ~ALL_LEDS_ON
+};
+
 static uint16_t *leds_address = NULL;
 
 static uint16_t convert_led_number_to_bit(uint8_t led_number);
@@ -37,7 +43,7 @@ void led_driver_turn_off(uint8_t led_number)
 
 void led_driver_turn_on_all(void)
 {
-	*leds_address = 0xffff;
+	*leds_address = ALL_LEDS_ON;
 }
 
 static uint16_t convert_led_number_to_bit(uint8_t led_number)
