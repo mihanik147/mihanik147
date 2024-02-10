@@ -75,12 +75,9 @@ TEST(LedDriver, TurnOnAll)
 	BITS_EQUAL(0xffff, virtualLeds, 0xffff);
 }
 
-#if 0
 TEST(LedDriver, TurnOffAnyLed)
 {
-	led_driver_turn_on(9);
-	led_driver_turn_on(8);
+	led_driver_turn_on_all();
 	led_driver_turn_off(8);
-	BITS_EQUAL(0x100, virtualLeds, 0xffff);
+	BITS_EQUAL(0xffff - (1 << (8-1)), virtualLeds, 0xffff);
 }
-#endif
