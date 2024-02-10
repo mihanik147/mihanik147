@@ -81,3 +81,10 @@ TEST(LedDriver, TurnOffAnyLed)
 	led_driver_turn_off(8);
 	BITS_EQUAL(0xffff - (1 << (8-1)), virtualLeds, 0xffff);
 }
+
+TEST(LedDriver, LedMemoryIsNotReadable)
+{
+	virtualLeds = 0xffff;
+	led_driver_turn_on(8);
+	BITS_EQUAL(0x80, virtualLeds, 0xffff);
+}

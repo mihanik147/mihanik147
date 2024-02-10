@@ -15,6 +15,8 @@ enum
 	ALL_LEDS_OFF = ~ALL_LEDS_ON
 };
 
+// var for record the LED’s state and make less changable leds_address
+static uint16_t leds_image;
 static uint16_t *leds_address = NULL;
 
 static uint16_t convert_led_number_to_bit(uint8_t led_number);
@@ -22,7 +24,8 @@ static uint16_t convert_led_number_to_bit(uint8_t led_number);
 void led_driver_create(uint16_t * const address)
 {
 	leds_address = address;
-	*leds_address = 0x0000;
+	leds_image = ALL_LEDS_OFF;
+	*leds_address = leds_image;
 }
 
 
@@ -33,17 +36,20 @@ void led_driver_destroy(void)
 
 void led_driver_turn_on(uint8_t led_number)
 {
-	*leds_address |= convert_led_number_to_bit(led_number);
+	leds_image |= convert_led_number_to_bit(led_number);
+	*leds_address = leds_image;
 }
 
 void led_driver_turn_off(uint8_t led_number)
 {
-	*leds_address = 0;
+	leds_image &= ~(convert_led_number_to_bit(led_number));
+	*leds_address = leds_image;
 }
 
 void led_driver_turn_on_all(void)
 {
-	*leds_address = ALL_LEDS_ON;
+	leds_image = ALL_LEDS_ON;
+	*leds_address = leds_image;
 }
 
 static uint16_t convert_led_number_to_bit(uint8_t led_number)
