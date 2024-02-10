@@ -47,6 +47,7 @@ void led_driver_turn_off(uint8_t ledNumber);
 */
 void led_driver_turn_on_all(void);
 
+
 #endif // LED_DRIVER_H
 
 /*** end of file ***/
