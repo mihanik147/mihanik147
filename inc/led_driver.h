@@ -40,6 +40,13 @@ void led_driver_turn_on(uint8_t ledNumber);
 */
 void led_driver_turn_off(uint8_t ledNumber);
 
+/** @brief Turn on all leds.
+*
+* @param None
+* @return None
+*/
+void led_driver_turn_on_all(void);
+
 #endif // LED_DRIVER_H
 
 /*** end of file ***/

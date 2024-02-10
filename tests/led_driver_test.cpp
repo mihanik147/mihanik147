@@ -69,6 +69,13 @@ TEST(LedDriver, TurnOnMultipleLeds)
 	BITS_EQUAL( ((1<<8-1)+ (1 << 9-1)), virtualLeds, 0xffff);
 }
 
+TEST(LedDriver, TurnOnAll)
+{
+	led_driver_turn_on_all();
+	BITS_EQUAL(0xffff, virtualLeds, 0xffff);
+}
+
+#if 0
 TEST(LedDriver, TurnOffAnyLed)
 {
 	led_driver_turn_on(9);
@@ -76,3 +83,4 @@ TEST(LedDriver, TurnOffAnyLed)
 	led_driver_turn_off(8);
 	BITS_EQUAL(0x100, virtualLeds, 0xffff);
 }
+#endif

@@ -35,6 +35,10 @@ void led_driver_turn_off(uint8_t led_number)
 	*leds_address = 0;
 }
 
+void led_driver_turn_on_all(void)
+{
+	*leds_address = 0xffff;
+}
 
 static uint16_t convert_led_number_to_bit(uint8_t led_number)
 {
