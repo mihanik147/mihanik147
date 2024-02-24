@@ -11,6 +11,7 @@
 #define LED_DRIVER_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 /** @brief Create object of led driver and off all leds.
 *
