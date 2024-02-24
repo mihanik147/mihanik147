@@ -94,7 +94,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(CPPUTEST_HOME)/include;$(CPPUTEST_HOME)/include/Platforms/VisualCpp;..\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CPPUTEST_HOME)/include;$(CPPUTEST_HOME)/include/Platforms/VisualCpp;..\inc;..\inc\util;..\mocks;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -133,6 +133,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\mocks\runtime_error_stub.c" />
     <ClCompile Include="..\tests\AllTests.cpp" />
     <ClCompile Include="..\tests\led_driver_test.cpp" />
   </ItemGroup>
@@ -141,6 +142,10 @@
       <Project>{b91444f6-1620-4836-8bde-05a795a7e772}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\util\runtime_error.h" />
+    <ClInclude Include="..\mocks\runtime_error_stub.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

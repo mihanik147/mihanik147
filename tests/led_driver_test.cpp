@@ -24,7 +24,8 @@
 
 extern "C"
 {
-#	include "led_driver.h"
+	#include "led_driver.h"
+	#include "runtime_error_stub.h"
 }
 
 TEST_GROUP(LedDriver)
@@ -94,4 +95,34 @@ TEST(LedDriver, UpperAndLowerBounds)
 	led_driver_turn_on(1);
 	led_driver_turn_on(16);
 	BITS_EQUAL(0x8001, virtualLeds, 0xffff);
+}
+
+TEST(LedDriver, OutOfBoundsTurnOnDoesNoHarm)
+{
+	led_driver_turn_on(-1);
+	led_driver_turn_on(0);
+	led_driver_turn_on(17);
+	led_driver_turn_on(3141);
+	BITS_EQUAL(0x0000, virtualLeds, 0xffff);
+}
+
+TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
+{
+	led_driver_turn_on_all();
+
+	led_driver_turn_off(-1);
+	led_driver_turn_off(0);
+	led_driver_turn_off(17);
+	led_driver_turn_off(3141);
+	BITS_EQUAL(0xffff, virtualLeds, 0xffff);
+}
+
+TEST(LedDriver, OutOfBoundsProducesRuntimeError)
+{
+	led_driver_turn_on(-1);
+#if 1
+	RUNTIME_ERROR("LED Driver: out-of-bounds LED", -1);
+#endif
+	STRCMP_EQUAL("LED Driver: out-of-bounds LED", runtime_error_stub_get_last_error());
+	LONGS_EQUAL(-1, runtime_error_stub_get_last_parameter());
 }

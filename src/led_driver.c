@@ -37,12 +37,18 @@ void led_driver_destroy(void)
 
 void led_driver_turn_on(uint8_t led_number)
 {
+	if (led_number <= 0 || led_number > 16)
+		return;
+
 	leds_image |= convert_led_number_to_bit(led_number);
 	update_hardware();
 }
 
 void led_driver_turn_off(uint8_t led_number)
 {
+	if (led_number <= 0 || led_number > 16)
+		return;
+
 	leds_image &= ~(convert_led_number_to_bit(led_number));
 	update_hardware();
 }
