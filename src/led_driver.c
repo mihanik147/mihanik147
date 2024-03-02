@@ -74,6 +74,10 @@ void led_driver_turn_on_all(void)
 
 bool led_driver_is_on(uint8_t led_number)
 {
+	if (is_led_out_of_bounds(led_number))
+	{
+		return false;
+	}
 	return leds_image & convert_led_number_to_bit(led_number);
 }
 
