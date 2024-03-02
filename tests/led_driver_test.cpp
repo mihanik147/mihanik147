@@ -31,10 +31,10 @@ extern "C"
 TEST_GROUP(LedDriver)
 {
 	// If var virtualLeds is defined static, the solution has problems with linking.
-	uint16_t virtualLeds;
+	uint16_t virtual_leds;
 	void setup()
 	{
-		led_driver_create(&virtualLeds);
+		led_driver_create(&virtual_leds);
 	}
 
 	void teardown()
@@ -52,14 +52,14 @@ TEST(LedDriver, LedsOffAfterCreate)
 TEST(LedDriver, TurnOnLedOn)
 {
 	led_driver_turn_on(1);
-	BITS_EQUAL(1, virtualLeds, 0xffff);
+	BITS_EQUAL(1, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, TurnOffLedOne)
 {
 	led_driver_turn_on(1);
 	led_driver_turn_off(1);
-	BITS_EQUAL(0, virtualLeds, 0xffff);
+	BITS_EQUAL(0, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, TurnOnMultipleLeds)
@@ -67,34 +67,34 @@ TEST(LedDriver, TurnOnMultipleLeds)
 	// Turn on led 8 and 9 because they are in two different bytes of uint16_t
 	led_driver_turn_on(8);
 	led_driver_turn_on(9);
-	BITS_EQUAL( ((1<<8-1)+ (1 << 9-1)), virtualLeds, 0xffff);
+	BITS_EQUAL( ((1<<8-1)+ (1 << 9-1)), virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, TurnOnAll)
 {
 	led_driver_turn_on_all();
-	BITS_EQUAL(0xffff, virtualLeds, 0xffff);
+	BITS_EQUAL(0xffff, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, TurnOffAnyLed)
 {
 	led_driver_turn_on_all();
 	led_driver_turn_off(8);
-	BITS_EQUAL(0xffff - (1 << (8-1)), virtualLeds, 0xffff);
+	BITS_EQUAL(0xffff - (1 << (8-1)), virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, LedMemoryIsNotReadable)
 {
-	virtualLeds = 0xffff;
+	virtual_leds = 0xffff;
 	led_driver_turn_on(8);
-	BITS_EQUAL(0x80, virtualLeds, 0xffff);
+	BITS_EQUAL(0x80, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, UpperAndLowerBounds)
 {
 	led_driver_turn_on(1);
 	led_driver_turn_on(16);
-	BITS_EQUAL(0x8001, virtualLeds, 0xffff);
+	BITS_EQUAL(0x8001, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, OutOfBoundsTurnOnDoesNoHarm)
@@ -103,7 +103,7 @@ TEST(LedDriver, OutOfBoundsTurnOnDoesNoHarm)
 	led_driver_turn_on(0);
 	led_driver_turn_on(17);
 	led_driver_turn_on(3141);
-	BITS_EQUAL(0x0000, virtualLeds, 0xffff);
+	BITS_EQUAL(0x0000, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
@@ -114,7 +114,7 @@ TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
 	led_driver_turn_off(0);
 	led_driver_turn_off(17);
 	led_driver_turn_off(3141);
-	BITS_EQUAL(0xffff, virtualLeds, 0xffff);
+	BITS_EQUAL(0xffff, virtual_leds, 0xffff);
 }
 
 TEST(LedDriver, OutOfBoundsProducesRuntimeError)
@@ -154,4 +154,10 @@ TEST(LedDriver, IsOff)
 	CHECK_FALSE(led_driver_is_off(11));
 }
 
-
+TEST(LedDriver, TurnOffMultipleLeds)
+{
+	led_driver_turn_on_all();
+	led_driver_turn_off(9);
+	led_driver_turn_off(8);
+	LONGS_EQUAL(0xffff & (~0x180), virtual_leds);
+}
