@@ -72,6 +72,11 @@ void led_driver_turn_on_all(void)
 	update_hardware();
 }
 
+bool led_driver_is_on(uint8_t led_number)
+{
+	return leds_image & convert_led_number_to_bit(led_number);
+}
+
 static uint16_t convert_led_number_to_bit(uint8_t led_number)
 {
 	return 1 << (led_number - 1);
