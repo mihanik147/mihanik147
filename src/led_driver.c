@@ -72,6 +72,11 @@ void led_driver_turn_on_all(void)
 	update_hardware();
 }
 
+void led_driver_turn_off_all(void)
+{
+
+}
+
 bool led_driver_is_on(uint8_t led_number)
 {
 	if (is_led_out_of_bounds(led_number))

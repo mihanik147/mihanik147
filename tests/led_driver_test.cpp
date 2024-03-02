@@ -161,3 +161,10 @@ TEST(LedDriver, TurnOffMultipleLeds)
 	led_driver_turn_off(8);
 	LONGS_EQUAL(0xffff & (~0x180), virtual_leds);
 }
+
+TEST(LedDriver, AllOff)
+{
+	led_driver_turn_on_all();
+	led_driver_turn_off_all();
+	LONGS_EQUAL(0, virtual_leds);
+}

@@ -48,6 +48,13 @@ void led_driver_turn_off(uint8_t ledNumber);
 */
 void led_driver_turn_on_all(void);
 
+/** @brief Turn off all leds.
+*
+* @param None
+* @return None
+*/
+void led_driver_turn_off_all(void);
+
 /** @brief Is on the led_number.
 *
 * @param[in] led_number The number of checked turned on led.
