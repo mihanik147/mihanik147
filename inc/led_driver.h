@@ -55,6 +55,14 @@ void led_driver_turn_on_all(void);
 */
 bool led_driver_is_on(uint8_t led_number);
 
+/** @brief Is off the led_number.
+*
+* @param[in] led_number The number of checked turned off led.
+* @return bool
+*/
+bool led_driver_is_off(uint8_t led_number);
+
+
 #endif // LED_DRIVER_H
 
 /*** end of file ***/
