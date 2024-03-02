@@ -74,7 +74,8 @@ void led_driver_turn_on_all(void)
 
 void led_driver_turn_off_all(void)
 {
-
+	leds_image = ALL_LEDS_OFF;
+	update_hardware();
 }
 
 bool led_driver_is_on(uint8_t led_number)
